@@ -10,9 +10,16 @@
 </head>
 <body>
 	<div id ="cube">
-		<div class=roofpig id="cube2" data-config="alg=R U R' U R U2 R'"></div>
+		<div class=roofpig id="cube2" data-config="base=CROSS"></div>
 	</div>
-	<input type="text" id="alg" value="alg=L U L">
-	<input type="button" value="go" onclick="f()">
+	<input type="text" size=1 maxlength=2 id="edg_0" value="23">
+	<input type="text" size=1 maxlength=2 id="edg_1" value="0">
+	<input type="text" size=1 maxlength=2 id="edg_2" value="2">
+	<input type="text" size=1 maxlength=2 id="edg_3" value="6">
+	<br><br>
+<!--	
+	<input type="text" id="alg" value="L U L">
+-->	
+	<input type="button" value="cross" onclick="search_cross()">
 </body>
 </html>
