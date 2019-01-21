@@ -1,9 +1,13 @@
 body {
     font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-    font-size: 10px;
+    font-size: 20px;
 }
 div.roofpig {
     width:300px;
     height:400px;
     margin: auto;
+}
+input.pos {
+	width:25px;
+	font-size: 20px;
 }
