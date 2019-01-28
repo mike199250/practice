@@ -12,14 +12,44 @@
 	<div id ="cube">
 		<div class=roofpig id="cube2" data-config="base=CROSS"></div>
 	</div>
-	0: <input type="text" size=1 class="pos" id="edg_0" value="23">
-	1: <input type="text" size=1 class="pos" id="edg_1" value="0">
-	2: <input type="text" size=1 class="pos" id="edg_2" value="2">
-	3: <input type="text" size=1 class="pos" id="edg_3" value="6">
+	
+	<input type="button" value="input" onclick="input()">
+	<input type="button" value="random" onclick="input_random()">
+	<br>
+	<input type="button" value="cross" onclick="search_cross()">
+	<input type="button" value="stage1" onclick="search()">
+	
 	<br><br>
+	edge<br>
+	00: <input type="text" class="pos" id="edg_0" value="23">
+	01: <input type="text" class="pos" id="edg_1" value="0">
+	02: <input type="text" class="pos" id="edg_2" value="2">
+	03: <input type="text" class="pos" id="edg_3" value="6">
+	<br>
+	04: <input type="text" class="pos" id="edg_4" value="24">
+	05: <input type="text" class="pos" id="edg_5" value="24">
+	06: <input type="text" class="pos" id="edg_6" value="24">
+	07: <input type="text" class="pos" id="edg_7" value="24">
+	<br>
+	08: <input type="text" class="pos" id="edg_8" value="24">
+	09: <input type="text" class="pos" id="edg_9" value="24">
+	10: <input type="text" class="pos" id="edg_10" value="24">
+	11: <input type="text" class="pos" id="edg_11" value="24">
+	<br><br>
+	corner<br>
+	00: <input type="text" class="pos" id="cnr_0" value="24">
+	01: <input type="text" class="pos" id="cnr_1" value="24">
+	02: <input type="text" class="pos" id="cnr_2" value="24">
+	03: <input type="text" class="pos" id="cnr_3" value="24">
+	<br>
+	04: <input type="text" class="pos" id="cnr_4" value="24">
+	05: <input type="text" class="pos" id="cnr_5" value="24">
+	06: <input type="text" class="pos" id="cnr_6" value="24">
+	07: <input type="text" class="pos" id="cnr_7" value="24">
+	
 <!--	
 	<input type="text" id="alg" value="L U L">
 -->	
-	<input type="button" value="cross" onclick="search_cross()">
+	
 </body>
 </html>
