@@ -17,12 +17,14 @@ public class PlayerMovement : MonoBehaviour
 
 	private WaitForSeconds inputHoldWait;
 	private Vector3 destinationPosition;
+	private Interactable currentInteractable;
+	private bool handleInput = true;
 
 	private const float stopDistanceProportion = 0.1f;
 	private const float navMeshSampleDistance = 4f;
 
 	private readonly int hashSpeedPara = Animator.StringToHash("Speed");
-
+	private readonly int hashLocomotionTag = Animator.StringToHash("Locomotion");
 
 
 	private void Start()
@@ -63,6 +65,14 @@ public class PlayerMovement : MonoBehaviour
 		agent.Stop();
 		transform.position = destinationPosition;
 		speed = 0f;
+
+		if (currentInteractable) {
+			transform.rotation = currentInteractable.interactionLocation.rotation;
+			currentInteractable.Interact();
+			currentInteractable = null;
+
+			StartCoroutine(WaitForInteraction());
+		}
 	}
 
 	private void Slowing(out float speed, float distanceToDestination)
@@ -72,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
 		float proportionalDistance = 1f - distanceToDestination / agent.stoppingDistance;
 		speed = Mathf.Lerp(slowingSpeed, 0f, proportionalDistance);
+
+		Quaternion targetRotation =
+			currentInteractable ? currentInteractable.interactionLocation.rotation : transform.rotation;
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, proportionalDistance);
 	}
 
 	private void Moving()
@@ -82,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
 
 	public void OnGroundClick(BaseEventData data)
 	{
+		if (!handleInput) {
+			return;
+		}
+		currentInteractable = null;
+
 		PointerEventData pData = (PointerEventData)data;
 		NavMeshHit hit;
 
@@ -93,5 +112,33 @@ public class PlayerMovement : MonoBehaviour
 
 		agent.SetDestination(destinationPosition);
 		agent.Resume();
+	}
+
+	public void OnInteractableClick(Interactable interactable)
+	{
+		if (!handleInput) {
+			return;
+		}
+
+		currentInteractable = interactable;
+		destinationPosition = currentInteractable.interactionLocation.position;
+
+		agent.SetDestination(destinationPosition);
+		agent.Resume();
+	}
+
+	private IEnumerator WaitForInteraction()
+	{
+		handleInput = false;
+
+		yield return inputHoldWait;
+
+		// wait while is not in locomotion
+		// get state info of base layer -> para is 0
+		while (animator.GetCurrentAnimatorStateInfo(0).tagHash != hashLocomotionTag ) {
+			yield return null;
+		}
+
+		handleInput = true;
 	}
 }
