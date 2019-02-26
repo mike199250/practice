@@ -1179,6 +1179,7 @@ GameObject:
   - component: {fileID: 7061166192621186591}
   - component: {fileID: 1772669418442081138}
   - component: {fileID: 1656763432870016421}
+  - component: {fileID: 482808434513275811}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -1244,6 +1245,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &482808434513275811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959471056930011610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d03381b74b91f94d95335b6150ced17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1772669418442081138}
+  agent: {fileID: 1656763432870016421}
+  inputHoldDelay: 0.5
+  turnSpeedThreshold: 0.5
+  speedDampTime: 0.1
+  slowingSpeed: 0.175
+  turnSmoothing: 15
 --- !u!1 &4027340903696081763
 GameObject:
   m_ObjectHideFlags: 0
