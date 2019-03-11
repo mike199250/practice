@@ -104,7 +104,7 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
         {
             subEditors[i].OnInspectorGUI();
         }
-		EditorGUILayout.EndVertical();
+        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace ();
