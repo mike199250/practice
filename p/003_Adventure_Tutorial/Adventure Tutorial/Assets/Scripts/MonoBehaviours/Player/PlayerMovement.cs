@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         float proportionalDistance = 1f - distanceToDestination / agent.stoppingDistance;
 
-        Quaternion targetRotation = /*currentInteractable ? currentInteractable.interactionLocation.rotation :*/ transform.rotation;
+        Quaternion targetRotation = currentInteractable ? currentInteractable.interactionLocation.rotation : transform.rotation;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, proportionalDistance);
 
         transform.position = Vector3.MoveTowards(transform.position, destinationPosition, slowingSpeed * Time.deltaTime);
