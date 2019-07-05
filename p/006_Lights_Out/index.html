@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="./styles/main.css">
+	<script src="./scripts/main.js"></script>
+</head>
+<body onload="init(document.forms[0].row.value,document.forms[0].col.value)">
+	<table>
+		<tr>
+			<td class="controls">
+				<form>
+					<input type="number" class="size" id="row" value="5"
+						onchange="init(document.forms[0].row.value,document.forms[0].col.value)"> row <br>
+					<input type="number" class="size" id="col" value="5"
+						onchange="init(document.forms[0].row.value,document.forms[0].col.value)"> column <br>
+					<input type="checkbox" id="flip_adjacent" onclick="change_flip_adjacent()">flip adjacent<br>
+				</form>
+			</td>
+			<td class="controls">
+				<input type="button" value="clear" onclick="init(document.forms[0].row.value,document.forms[0].col.value)">
+				<input type="button" value="search" onclick="search()">
+				<p id="status">set-up</p>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<th>beginning board</th>
+			<th>ending board</th>
+		</tr>
+		<tr>
+			<td><div class="board" id="beg_board"></div></td>
+			<td><div class="board" id="end_board"></div></td>
+		</tr>
+		<tr>
+			<th>answer</th>
+		</tr>
+		<tr>
+			<td><div class="board" id="ans_board"></div></td>
+		</tr>
+	</table>
+</body>
+</html>
