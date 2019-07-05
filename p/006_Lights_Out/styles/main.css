@@ -1,0 +1,22 @@
+body {
+	background-color: #292421;
+	color: #FAEBD7;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-size: 20px;
+	margin-top:70px;
+	margin-left:100px;
+}
+input {
+	width:50px;
+	height:20px;
+	font-size: 20px;
+	background-color: #292421;
+	color: #FAEBD7;
+}
+.board{
+	background-color:#595959;
+}
+th{
+	text-align: center;
+	color: #DDA0DD;
+}
